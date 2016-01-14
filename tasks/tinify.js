@@ -58,8 +58,12 @@ module.exports = function(grunt) {
           }
         }
 
+        var samePlace = (f.src === f.dest);
+
         if(!isSame){
-          fileInfo[src] = md5Hash;
+          if(!samePlace){
+            fileInfo[src] = md5Hash;
+          }
           grunt.log.writeln("Compressing File: " + src);
           var source = tinify.fromFile(src);
           source.toBuffer(function(err, resultData) {
@@ -67,6 +71,13 @@ module.exports = function(grunt) {
               grunt.log.writeln(err.message);
               callback(err.message);
             }
+            if(samePlace){
+              var save_md5 = crypto.createHash('md5');
+              save_md5.update(resultData);
+              var save_md5Hash = save_md5.digest('hex');
+              fileInfo[src] = save_md5Hash;
+            }
+
             grunt.file.write(f.dest, resultData);
             if(index === (files.length - 1)){
               callback(null);
