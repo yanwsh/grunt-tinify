@@ -1,0 +1,45 @@
+{
+  "name": "grunt-tinify",
+  "description": "compress your png and jpg files  remotely",
+  "version": "0.1.0",
+  "homepage": "https://github.com/yanwsh/grunt-tinify",
+  "author": {
+    "name": "Wensheng Yan",
+    "email": "yanwsh@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yanwsh/grunt-tinify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yanwsh/grunt-tinify/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/yanwsh/grunt-tinify/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5",
+    "async": "~1.5.2"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "dependencies": {
+    "tinify": "^1.1.1"
+  }
+}
