@@ -43,6 +43,8 @@ module.exports = function(grunt) {
       return !grunt.file.isDir(file.src);
     });
 
+    var length = files.length;
+    var finish_length = 0;
 
     async.series([function(callback){
       files.forEach(function(f, index){
@@ -72,20 +74,24 @@ module.exports = function(grunt) {
               grunt.log.writeln(err.message);
               callback(err.message);
             }
+
+            grunt.file.write(f.dest, resultData);
+
             if(samePlace){
+              var file_buffer = grunt.file.read(f.dest);
               var save_md5 = crypto.createHash('md5');
-              save_md5.update(resultData);
+              save_md5.update(file_buffer);
               var save_md5Hash = save_md5.digest('hex');
               fileInfo[src] = save_md5Hash;
             }
-
-            grunt.file.write(f.dest, resultData);
-            if(index === (files.length - 1)){
+            finish_length++;
+            if(finish_length == length){
               callback(null);
             }
           });
         }else{
-          if(index === (files.length - 1)){
+          finish_length++;
+          if(finish_length == length){
             callback(null);
           }
         }
