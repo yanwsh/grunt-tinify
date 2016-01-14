@@ -3,3 +3,6 @@ npm-debug.log
 tmp
 .pngTinify
 _key.json
+
+.idea
+.DS_Store
