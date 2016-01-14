@@ -1,6 +1,6 @@
 # grunt-tinify
 
-> compress your png and jpg files remotely
+> Compression for PNG and JPG files using the remote service from tinypng.com / tinyjpeg.com
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
