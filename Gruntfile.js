@@ -39,7 +39,7 @@ module.exports = function(grunt) {
         key: grunt.file.readJSON(keyFile).key
       },
       default_options: {
-        src: ['test/**/*.png', 'test/**/*.jpg'],
+        src: ['test/**/*.png','test/**/*.jpg'],
         dest: 'tmp/'
       }
     }

@@ -33,7 +33,7 @@ module.exports = function(grunt) {
       var cwd = file.cwd || '';
       files = files.concat(file.src.map(function(src) {
         var s = path.join(cwd, src),
-            d = (cwd||file.src.length>1) ? ((file.dest||'')+src) : file.dest || src;
+            d = (cwd||file.src.length>1) ? ((file.dest||'')+src) : ((file.dest||'')+src) || src;
         return {src: s, dest: d};
       }));
     });
@@ -42,6 +42,7 @@ module.exports = function(grunt) {
     files = files.filter(function(file) {
       return !grunt.file.isDir(file.src);
     });
+
 
     async.series([function(callback){
       files.forEach(function(f, index){
