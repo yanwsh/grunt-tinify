@@ -1,7 +1,7 @@
 {
   "name": "grunt-tinify-image",
   "description": "Compression for PNG and JPG files using the remote service from tinypng.com / tinyjpeg.com",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "homepage": "https://github.com/yanwsh/grunt-tinify",
   "author": "Wensheng Yan <yanwsh@gmail.com>",
   "repository": {
